@@ -2,8 +2,8 @@ import requests as rq
 from datetime import datetime, timedelta
 from twilio.rest import Client
 
-TWILIO_ACCOUNT_SID = 'AC5173cb3cd52ad28d247eef71b6a3b229'
-TWILIO_AUTH_TOKEN = '777a387d30987f61adeafaa4ebc7b7cc'
+TWILIO_ACCOUNT_SID = 'account sid'
+TWILIO_AUTH_TOKEN = 'auth token'
 account_sid = TWILIO_ACCOUNT_SID
 auth_token = TWILIO_AUTH_TOKEN
 
@@ -20,7 +20,7 @@ STOCK_API_PARAMETERS = {
     'apikey': STOCK_API_KEY
 }
 
-NEWS_API_KEY = 'aac88f9e454f40b085d5993adbf00b7b'
+NEWS_API_KEY = 'api key'
 NEW_API_PARAMETERS = {
     'q': COMPANY_NAME,
     'apiKey': NEWS_API_KEY
@@ -67,16 +67,16 @@ if precentage_diff >= 5 or precentage_diff <= -5:
             message = client.messages \
                 .create(
                 body=f'{STOCK}: 🔺{precentage_diff} %\n\nHeadline:{news_article["Headlines"]}\n\n{news_article["Brief"]}',
-                from_='+17125265712',
-                to='+234 810 667 1579'
+                from_='',
+                to=''
             )
             print(message.status)
         elif precentage_diff <= -5:
             message = client.messages \
                 .create(
                 body=f'{STOCK}: 🔻{precentage_diff} %\n\nHeadline:{news_article["Headlines"]}\n\n{news_article["Brief"]}',
-                from_='+17125265712',
-                to='+234 810 667 1579'
+                from_='',
+                to=''
             )
             print(message.status)
 
@@ -84,8 +84,8 @@ else:
     message = client.messages \
         .create(
         body='Stock prices haven\'t made any significant movement',
-        from_='+17125265712',
-        to='+234 810 667 1579'
+        from_='',
+        to=''
     )
     print(message.status)
 
